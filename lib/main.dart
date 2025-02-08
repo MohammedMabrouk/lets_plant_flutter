@@ -25,9 +25,11 @@ class MyApp extends StatelessWidget {
           labelTextStyle: WidgetStateProperty.resolveWith<TextStyle>((states) {
             if (states.contains(WidgetState.selected)) {
               return const TextStyle(
+                fontSize: 12,
                   color: AppColors.green_2); // Selected text color
             }
             return const TextStyle(
+                fontSize: 12,
                 color: AppColors.gray_3); // Unselected text color
           }),
         ),
@@ -113,18 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: <Widget>[
         /// Reminders
-        Card(
-          shadowColor: Colors.transparent,
-          margin: const EdgeInsets.all(8.0),
-          child: SizedBox.expand(
-            child: Center(
-              child: Text(
-                'Reminders',
-                style: theme.textTheme.titleLarge,
-              ),
-            ),
-          ),
-        ),
+        RemindersListScreen(),
 
         /// My Plants
         Card(

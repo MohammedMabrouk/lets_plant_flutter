@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:lets_plant_flutter/AppColors.dart';
 import '../../common/CommonWidgets.dart';
 
@@ -13,27 +14,16 @@ class _RemindersListScreenState extends State<RemindersListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.green_1,
-      appBar: AppBar(
         backgroundColor: AppColors.green_1,
-        title: ScreenTitle(title: "Reminders"),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        body: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
+            child:
+            ListView.builder(
+              itemCount: 50, // Number of items
+              itemBuilder: (context, index) {
+                return ReminderCard(title: "water plant: $index");
+              },
+            )
+        ));
   }
 }
